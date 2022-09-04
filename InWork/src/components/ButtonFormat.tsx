@@ -2,7 +2,7 @@ import React from 'react';
 import {TouchableOpacity, StyleSheet} from 'react-native';
 
 interface Props {
-  cardStyle: any;
+  buttonStyle: any;
   children?: any;
   onpress: any;
   edit?: boolean;
@@ -10,7 +10,7 @@ interface Props {
 const ButtonFormat = (props: Props) => {
   return (
     <TouchableOpacity
-      style={[styles.container, props.cardStyle]}
+      style={[styles.container, props.buttonStyle]}
       onPress={props.onpress}
       disabled={props.edit}
       {...props}>

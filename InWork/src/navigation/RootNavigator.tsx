@@ -7,7 +7,11 @@ const Stack = createNativeStackNavigator();
 const RootNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="GetStarted" component={GetStarted} />
+      <Stack.Screen
+        name="GetStarted"
+        component={GetStarted}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
