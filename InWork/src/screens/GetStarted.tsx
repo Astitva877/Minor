@@ -10,11 +10,14 @@ const GetStarted = ({navigation}) => {
         title="Learn More"
         color="#841584"
       /> */}
-      <Image
+      {/* <Image
         style={styles.container}
         source={require('../assests/splash.png')}
         resizeMode="cover"
-      />
+      /> */}
+      <Text>
+        Astitva 
+      </Text>
     </View>
   );
 };
