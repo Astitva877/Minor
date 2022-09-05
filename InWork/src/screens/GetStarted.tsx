@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
   logoStyle: {height: '18%', width: '70%'},
   lowerView: {flex: 0.2, alignItems: 'center'},
   forwardButton: {
-    height: '40%',
-    width: '70%',
+    height: '38%',
+    width: '65%',
     backgroundColor: 'white',
     borderRadius: 12,
     alignItems: 'center',
