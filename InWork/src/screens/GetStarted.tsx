@@ -48,13 +48,15 @@ const styles = StyleSheet.create({
   logoStyle: {height: '18%', width: '70%'},
   lowerView: {flex: 0.3, alignItems: 'center'},
   forwardButton: {
-    height: '38%',
+    height: '30%',
     width: '65%',
     backgroundColor: 'white',
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
+    elevation:9,
+    shadowColor:'white'
   },
   startedText: {
     fontSize: 20,
