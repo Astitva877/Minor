@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   welcomeText: {color: 'white', fontSize: 20, fontWeight: 'bold'},
   logoStyle: {height: '18%', width: '70%'},
-  lowerView: {flex: 0.2, alignItems: 'center'},
+  lowerView: {flex: 0.3, alignItems: 'center'},
   forwardButton: {
     height: '38%',
     width: '65%',
