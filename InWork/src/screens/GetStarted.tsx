@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     alignItems: 'center',
-    marginTop: '12%',
+    marginTop: '22%',
   },
   welcomeText: {color: 'white', fontSize: 20, fontWeight: 'bold'},
   logoStyle: {height: '18%', width: '70%'},
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   startedText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'blue',
+    color: '#063a8d',
     marginRight: 5,
   },
   arrowStyle: {height: '40%', width: '10%'},

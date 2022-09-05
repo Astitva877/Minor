@@ -15,7 +15,7 @@ const RootNavigator = () => {
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
-        options={{title: 'Login'}}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );
