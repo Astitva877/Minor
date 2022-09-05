@@ -65,8 +65,8 @@ const styles = StyleSheet.create({
     marginTop: '23%',
   },
   forwardButton: {
-    height: '40%',
-    width: '70%',
+    height: '38%',
+    width: '65%',
     backgroundColor: 'white',
     borderRadius: 12,
     alignItems: 'center',
@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
   },
 
   RegisterBu: {
-    height: '40%',
-    width: '70%',
+    height: '38%',
+    width: '65%',
     backgroundColor: '#063a8d',
     borderRadius: 12,
     alignItems: 'center',
@@ -84,13 +84,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   startedText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#063a8d',
     marginRight: 5,
   },
   RegisterText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#ffffff',
     marginRight: 5,
