@@ -24,14 +24,14 @@ const GetStarted = ({navigation}) => {
       <View style={styles.lastView}>
         <ButtonFormat
           buttonStyle={styles.RegisterBu}
-          onpress={() => navigation.navigate('GetStarted')}>
+          onpress={() => navigation.navigate('SignUpScreen')}>
           <Text style={styles.RegisterText}>Register</Text>
         </ButtonFormat>
       </View>
       <View style={styles.lowerView}>
         <ButtonFormat
           buttonStyle={styles.forwardButton}
-          onpress={() => navigation.navigate('GetStarted')}>
+          onpress={() => navigation.navigate('SignInScreen')}>
           <Text style={styles.startedText}>Log in</Text>
         </ButtonFormat>
       </View>
