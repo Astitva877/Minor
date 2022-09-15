@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  upperView: {flex: 0.8},
+  upperView: {flex: 0.7},
   upperInsideView: {
     height: '100%',
     width: '100%',
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     elevation:9,
-    shadowColor:'white'
+    shadowColor:'white',
+    shadowRadius:14,
   },
   startedText: {
     fontSize: 20,
