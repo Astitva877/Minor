@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    elevation:9,
-    shadowColor:'white'
+    elevation: 9,
+    shadowColor: 'white',
   },
 
   RegisterBu: {
@@ -84,8 +84,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    elevation:9,
-    shadowColor:'#4577c8'
+    elevation: 9,
+    shadowColor: '#4577c8',
+    
   },
   startedText: {
     fontSize: 18,
