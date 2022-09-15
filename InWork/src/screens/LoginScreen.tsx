@@ -31,7 +31,7 @@ const GetStarted = ({navigation}) => {
       <View style={styles.lowerView}>
         <ButtonFormat
           buttonStyle={styles.forwardButton}
-          onpress={() => navigation.navigate('GetStarted')}>
+          onpress={() => navigation.navigate('SignInScreen')}>
           <Text style={styles.startedText}>Log in</Text>
         </ButtonFormat>
       </View>
