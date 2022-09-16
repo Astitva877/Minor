@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   startedText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'blue',
+    color: '#063a8d',
     marginRight: 5,
   },
   arrowStyle: {height: '40%', width: '10%'},

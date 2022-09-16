@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
   },
   signUpView: {
     width: '75%',
-    height: '18%',
-    backgroundColor: 'blue',
+    height: '22%',
+    backgroundColor: '#063a8d',
     elevation: 15,
     borderRadius: 10,
     justifyContent: 'center',
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   googleView: {
     width: '75%',
-    height: '18%',
+    height: '22%',
     backgroundColor: '#ffffff',
     elevation: 15,
     borderRadius: 10,
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   googleIcon: {height: '97%', width: '20%'},
-  googleText: {color: 'black', fontSize: 15},
+  googleText: {color: '#7b7d80', fontSize: 17, fontWeight: '700'},
   logoStyle: {
     width: '95%',
     height: '95%',
@@ -118,7 +118,13 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   backButtonStyle: {width: '16%', height: '27%', elevation: 15},
-  signTextStyle: {fontSize: 30, fontWeight: 'bold'},
+  signTextStyle: {fontSize: 45, fontWeight: 'bold', color: 'black'},
   topMiddleView: {width: '90%'},
-  signUpText: {color: '#ffffff', fontSize: 15},
+  signUpText: {
+    color: '#ffffff',
+    fontSize: 20,
+    elevation: 10,
+    shadowColor: 'blue',
+    fontWeight: '500',
+  },
 });
