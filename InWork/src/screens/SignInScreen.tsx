@@ -59,9 +59,7 @@ const SignUpScreen = ({navigation}) => {
         </View>
       </View>
       <View style={styles.lowerView}>
-        <ButtonFormat
-          buttonStyle={styles.signUpView}
-          onpress={() => navigation.navigate('Dashboard')}>
+        <ButtonFormat buttonStyle={styles.signUpView} onpress={undefined}>
           <Text style={styles.signUpText}>Log in</Text>
         </ButtonFormat>
         <ButtonFormat buttonStyle={styles.googleView} onpress={undefined}>

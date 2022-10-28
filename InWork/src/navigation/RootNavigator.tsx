@@ -4,7 +4,6 @@ import LoginScreen from '../screens/LoginScreen';
 import GetStarted from '../screens/GetStarted';
 import SignUpScreen from '../screens/SignUpScreen';
 import SignInScreen from '../screens/SignInScreen';
-import Dashboard from '../screens/Dashboard';
 const Stack = createNativeStackNavigator();
 const RootNavigator = () => {
   return (
@@ -27,11 +26,6 @@ const RootNavigator = () => {
       <Stack.Screen
         name="SignInScreen"
         component={SignInScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Dashboard"
-        component={Dashboard}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

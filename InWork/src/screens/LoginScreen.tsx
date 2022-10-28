@@ -35,7 +35,6 @@ const GetStarted = ({navigation}) => {
           <Text style={styles.startedText}>Log in</Text>
         </ButtonFormat>
       </View>
-      
     </ImageBackground>
   );
 };
