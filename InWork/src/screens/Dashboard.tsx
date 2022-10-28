@@ -1,10 +1,13 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-
+import Card from '../components/Card';
 const Dashboard = () => {
   return (
     <View>
-      <Text>Dashboard</Text>
+      <Card> 
+       
+      </Card>
+       
     </View>
   );
 };
