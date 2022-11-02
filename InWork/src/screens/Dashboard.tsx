@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   TextInput,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 import Card from '../components/Card';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -16,7 +17,7 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const Dashboard = () => {
+const Dashboard = ({navigation}) => {
   const DATA = [
     {
       id: '1',
@@ -38,6 +39,15 @@ const Dashboard = () => {
     },
     {
       id: '3',
+      title: 'Sofa Set Repair',
+      userName: 'Dheeraj',
+      address: '104, New Tilak Nagar',
+      datePosted: '24 Oct',
+      totalApplied: '24',
+      amount: '500',
+    },
+    {
+      id: '4',
       title: 'Sofa Set Repair',
       userName: 'Dheeraj',
       address: '104, New Tilak Nagar',
@@ -70,20 +80,22 @@ const Dashboard = () => {
         style={{
           flex: 0.1,
           flexDirection: 'row',
-          //backgroundColor: 'red',
+          // backgroundColor: 'red',
           justifyContent: 'flex-start',
         }}>
-        <View
+        <TouchableOpacity
           style={{
             width: '10%',
-            margin: '2%',
-            marginTop: '6%',
+            // margin: '2%',
+            marginTop: '5%',
+            marginLeft: '3%',
             height: '50%',
             // /alignItems:'flex-start',
             //backgroundColor: 'blue',
-          }}>
+          }}
+          onPress={() => navigation.openDrawer()}>
           <Octicons name={'three-bars'} size={30} color={'black'} />
-        </View>
+        </TouchableOpacity>
         <View style={styles.imageView}>
           <Image
             style={styles.imageStyle}
@@ -97,7 +109,11 @@ const Dashboard = () => {
             marginLeft: '12%',
             justifyContent: 'center',
           }}>
-          <MaterialIcons name={'add-circle-outline'} size={30} color={'black'} />
+          <MaterialIcons
+            name={'add-circle-outline'}
+            size={30}
+            color={'black'}
+          />
         </View>
         <View
           style={{
@@ -105,7 +121,11 @@ const Dashboard = () => {
             justifyContent: 'center',
             marginLeft: '2%',
           }}>
-          <MaterialIcons name={'chat-bubble-outline'} size={30} color={'black'} />
+          <MaterialIcons
+            name={'chat-bubble-outline'}
+            size={30}
+            color={'black'}
+          />
         </View>
         <View style={styles.ProPhoto}>
           <Image
@@ -117,7 +137,7 @@ const Dashboard = () => {
         </View>
       </View>
       <View style={{flex: 0.9}}>
-        <View style={{ flexDirection: 'row',height:'10%'}}>
+        <View style={{flexDirection: 'row', height: '10%'}}>
           <View
             style={{
               //backgroundColor: 'blue',
@@ -129,15 +149,20 @@ const Dashboard = () => {
           </View>
           <View
             style={{
-             // backgroundColor: 'yellow',
+              // backgroundColor: 'yellow',
               width: '80%',
               alignContent: 'flex-start',
               justifyContent: 'center',
-              height:'100%'
+              height: '100%',
             }}>
             <TextInput style={styles.input} placeholder="Search" />
           </View>
-          <View style={{width:'10%',justifyContent:'center',alignItems:'center'}}>
+          <View
+            style={{
+              width: '10%',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
             <Entypo name={'sound-mix'} size={25} color={'black'} />
           </View>
         </View>
@@ -156,13 +181,13 @@ export default Dashboard;
 const styles = StyleSheet.create({
   cardView: {width: '100%', alignItems: 'center', marginTop: 10},
   input: {
-    height: '50%',
+    height: '60%',
     //margin: '3%',
     borderWidth: 1,
     padding: 10,
     borderColor: '#abafb3',
     borderRadius: 10,
-    backgroundColor:'white'
+    backgroundColor: 'white',
   },
   imageView: {
     width: '40%',
