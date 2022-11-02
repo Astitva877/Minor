@@ -50,7 +50,7 @@ const Card = (props: propTypes) => {
           <MaterialCommunityIcons
             name={'arrow-right'}
             size={24}
-            color={'#000000'}
+            color={'#063a8d'}
           />
         </View>
       </View>
