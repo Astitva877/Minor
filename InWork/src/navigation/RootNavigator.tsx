@@ -14,7 +14,11 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigation = () => {
   return (
     <Drawer.Navigator initialRouteName="Dashboard">
-      <Drawer.Screen name="Dashboard" component={Dashboard} options={{headerShown: false}} />
+      <Drawer.Screen
+        name="Dashboard"
+        component={Dashboard}
+        options={{headerShown: false}}
+      />
       <Drawer.Screen name="MyApplications" component={MyApplications} />
       <Drawer.Screen name="PostWork" component={PostWork} />
     </Drawer.Navigator>
