@@ -26,7 +26,7 @@ export function DrawerContent(props) {
               fontSize: 25,
               fontWeight: 'bold',
               color: 'black',
-              marginLeft: '2%',
+              marginLeft: '5%',
             }}>
             User Name
           </Text>
@@ -37,7 +37,7 @@ export function DrawerContent(props) {
             // backgroundColor: 'pink',
             width: '20%',
             marginVertical: '1%',
-            marginLeft: '6%',
+            marginLeft: '4%',
           }}>
           <Image
             style={styles.CornerImage}
@@ -47,7 +47,7 @@ export function DrawerContent(props) {
           />
         </View>
         <View style={{marginVertical: '6%'}}>
-          <Feather name={'edit-3'} size={30} color={'#063a8d'} />
+          <Feather name={'edit-3'} size={28} color={'#063a8d'} />
         </View>
       </View>
       <View style={{flex: 0.3}}>
@@ -61,7 +61,7 @@ export function DrawerContent(props) {
       <View style={styles.Boxes1}>
         <Text style={styles.TextHead}> My Profile</Text>
         <View style={styles.Name}>
-          <Ionicons name={'newspaper-outline'} size={28} color={'black'} />
+          <Feather name={'file-text'} size={28} color={'black'} />
           <Text style={styles.TextStyle}>Application</Text>
         </View>
         <View style={styles.Name}>
@@ -121,19 +121,20 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   TextHead: {
-    fontSize: 28,
+    fontSize: 25,
     fontWeight: 'bold',
     color: 'black',
-    marginVertical: '2%',
+    marginTop:'5%',
+    marginBottom:'3%'
   },
   Boxes1: {
     //backgroundColor: 'pink',
-    flex: 0.22,
+    flex: 0.28,
     marginTop: '15%',
     marginBottom: '10%',
   },
   Boxes2: {
-    //backgroundColor: 'pink',
+   // backgroundColor: 'pink',
     flex: 0.22,
   },
   Name: {
