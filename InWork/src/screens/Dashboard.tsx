@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   TextInput,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 import Card from '../components/Card';
 //import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -16,7 +17,7 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const Dashboard = () => {
+const Dashboard = ({navigation}) => {
   const DATA = [
     {
       id: '1',
@@ -73,7 +74,7 @@ const Dashboard = () => {
           //backgroundColor: 'red',
           justifyContent: 'flex-start',
         }}>
-        <View
+        <TouchableOpacity
           style={{
             width: '10%',
             margin: '2%',
@@ -81,9 +82,10 @@ const Dashboard = () => {
             height: '50%',
             // /alignItems:'flex-start',
             //backgroundColor: 'blue',
-          }}>
+          }}
+          onPress={() => navigation.openDrawer()}>
           <Octicons name={'three-bars'} size={30} color={'black'} />
-        </View>
+        </TouchableOpacity>
         <View style={styles.imageView}>
           <Image
             style={styles.imageStyle}
@@ -91,19 +93,20 @@ const Dashboard = () => {
             resizeMode="contain"
           />
         </View>
-        <View
+        <TouchableOpacity
           // eslint-disable-next-line react-native/no-inline-styles
           style={{
             // backgroundColor: 'pink',
             marginLeft: '12%',
             justifyContent: 'center',
-          }}>
+          }}
+          onPress={() => navigation.navigate('PostWork')}>
           <MaterialIcons
             name={'add-circle-outline'}
             size={30}
             color={'black'}
           />
-        </View>
+        </TouchableOpacity>
         <View
           style={{
             //backgroundColor: 'yellow',
@@ -179,7 +182,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderColor: '#abafb3',
     borderRadius: 10,
-    backgroundColor:'white'
+    backgroundColor: 'white',
   },
   imageView: {
     width: '40%',
