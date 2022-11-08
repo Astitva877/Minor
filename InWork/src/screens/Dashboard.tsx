@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   TextInput,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 import Card from '../components/Card';
 //import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -15,6 +16,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Form from '../screens/Form';
 
 const Dashboard = () => {
   const DATA = [
@@ -94,15 +96,20 @@ const Dashboard = () => {
         <View
           // eslint-disable-next-line react-native/no-inline-styles
           style={{
-            // backgroundColor: 'pink',
-            marginLeft: '12%',
+             //backgroundColor: 'pink',
+            marginLeft: '10%',
             justifyContent: 'center',
           }}>
+            <TouchableOpacity
+               onpress={() =>
+                navigation.navigate('DrawerNavigation', {screen: 'Form'})
+              }>>
           <MaterialIcons
             name={'add-circle-outline'}
             size={30}
             color={'black'}
           />
+          </TouchableOpacity>
         </View>
         <View
           style={{
@@ -138,7 +145,6 @@ const Dashboard = () => {
             <Fontisto name={'search'} size={25} color={'black'} />
           </View>
           <View
-            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               // backgroundColor: 'yellow',
               width: '80%',
@@ -179,7 +185,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderColor: '#abafb3',
     borderRadius: 10,
-    backgroundColor:'white'
+    backgroundColor: 'white',
   },
   imageView: {
     width: '40%',
@@ -194,14 +200,14 @@ const styles = StyleSheet.create({
   },
   CornerImage: {
     height: '55%',
-    width: '63%',
+    width: '72%',
     borderRadius: 45,
     marginLeft: '15%',
   },
   ProPhoto: {
     height: '100%',
-    // backgroundColor:'blue',
-    width: '15%',
+    //backgroundColor:'blue',
+    width: '15.5%',
     justifyContent: 'center',
   },
 });
