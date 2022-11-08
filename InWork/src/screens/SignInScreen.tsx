@@ -3,7 +3,7 @@ import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import ButtonFormat from '../components/ButtonFormat';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+//import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import CustomInput from '../components/CustomInput';
 
 const SignUpScreen = ({navigation}) => {
@@ -61,7 +61,9 @@ const SignUpScreen = ({navigation}) => {
       <View style={styles.lowerView}>
         <ButtonFormat
           buttonStyle={styles.signUpView}
-          onpress={() => navigation.navigate('DrawerNavigation', {screen: 'Dashboard'})}>
+          onpress={() =>
+            navigation.navigate('DrawerNavigation', {screen: 'Dashboard'})
+          }>
           <Text style={styles.signUpText}>Log in</Text>
         </ButtonFormat>
         <ButtonFormat buttonStyle={styles.googleView} onpress={undefined}>
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
   logoStyle: {
     width: '95%',
     height: '95%',
-    elevation: 10,
+    elevation: 35,
   },
   upperView: {flex: 0.3, alignItems: 'center'},
   middleView: {flex: 0.4, alignItems: 'center'},

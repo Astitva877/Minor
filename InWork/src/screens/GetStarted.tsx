@@ -43,9 +43,10 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     marginTop: '12%',
+    //backgroundColor:'red'
   },
   welcomeText: {color: 'white', fontSize: 20, fontWeight: 'bold'},
-  logoStyle: {height: '18%', width: '70%'},
+  logoStyle: {height: '18%', width: '85%'},
   lowerView: {flex: 0.2, alignItems: 'center'},
   forwardButton: {
     height: '40%',
