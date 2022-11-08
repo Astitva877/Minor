@@ -35,7 +35,6 @@ const GetStarted = ({navigation}) => {
           <Text style={styles.startedText}>Log in</Text>
         </ButtonFormat>
       </View>
-      
     </ImageBackground>
   );
 };
@@ -87,7 +86,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     elevation: 9,
     shadowColor: '#4577c8',
-    
   },
   startedText: {
     fontSize: 18,

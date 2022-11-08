@@ -1,23 +1,22 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   FlatList,
   SafeAreaView,
   TextInput,
   Image,
-  TouchableOpacity,
 } from 'react-native';
 import Card from '../components/Card';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Ionicon from 'react-native-vector-icons/Ionicons';
+//import AntDesign from 'react-native-vector-icons/AntDesign';
+//import Ionicon from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const Dashboard = ({navigation}) => {
+const Dashboard = () => {
   const DATA = [
     {
       id: '1',
@@ -39,15 +38,6 @@ const Dashboard = ({navigation}) => {
     },
     {
       id: '3',
-      title: 'Sofa Set Repair',
-      userName: 'Dheeraj',
-      address: '104, New Tilak Nagar',
-      datePosted: '24 Oct',
-      totalApplied: '24',
-      amount: '500',
-    },
-    {
-      id: '4',
       title: 'Sofa Set Repair',
       userName: 'Dheeraj',
       address: '104, New Tilak Nagar',
@@ -80,22 +70,20 @@ const Dashboard = ({navigation}) => {
         style={{
           flex: 0.1,
           flexDirection: 'row',
-          // backgroundColor: 'red',
+          //backgroundColor: 'red',
           justifyContent: 'flex-start',
         }}>
-        <TouchableOpacity
+        <View
           style={{
             width: '10%',
-            // margin: '2%',
-            marginTop: '5%',
-            marginLeft: '3%',
+            margin: '2%',
+            marginTop: '6%',
             height: '50%',
             // /alignItems:'flex-start',
             //backgroundColor: 'blue',
-          }}
-          onPress={() => navigation.openDrawer()}>
+          }}>
           <Octicons name={'three-bars'} size={30} color={'black'} />
-        </TouchableOpacity>
+        </View>
         <View style={styles.imageView}>
           <Image
             style={styles.imageStyle}
@@ -104,6 +92,7 @@ const Dashboard = ({navigation}) => {
           />
         </View>
         <View
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{
             // backgroundColor: 'pink',
             marginLeft: '12%',
@@ -139,6 +128,7 @@ const Dashboard = ({navigation}) => {
       <View style={{flex: 0.9}}>
         <View style={{flexDirection: 'row', height: '10%'}}>
           <View
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               //backgroundColor: 'blue',
               width: '10%',
@@ -148,6 +138,7 @@ const Dashboard = ({navigation}) => {
             <Fontisto name={'search'} size={25} color={'black'} />
           </View>
           <View
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               // backgroundColor: 'yellow',
               width: '80%',
@@ -158,6 +149,7 @@ const Dashboard = ({navigation}) => {
             <TextInput style={styles.input} placeholder="Search" />
           </View>
           <View
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               width: '10%',
               justifyContent: 'center',
@@ -181,13 +173,13 @@ export default Dashboard;
 const styles = StyleSheet.create({
   cardView: {width: '100%', alignItems: 'center', marginTop: 10},
   input: {
-    height: '60%',
+    height: '50%',
     //margin: '3%',
     borderWidth: 1,
     padding: 10,
     borderColor: '#abafb3',
     borderRadius: 10,
-    backgroundColor: 'white',
+    backgroundColor:'white'
   },
   imageView: {
     width: '40%',
