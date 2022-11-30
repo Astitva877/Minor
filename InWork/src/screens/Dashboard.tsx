@@ -7,6 +7,8 @@ import {
   SafeAreaView,
   TextInput,
   Image,
+  TouchableOpacity,
+  KeyboardAvoidingView,
 } from 'react-native';
 import Card from '../components/Card';
 //import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -15,7 +17,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Form from '../screens/Form';
+//import Form from '../screens/Form';
 
 const Dashboard = ({navigation}) => {
   const DATA = [
@@ -63,109 +65,113 @@ const Dashboard = ({navigation}) => {
     );
   };
   return (
+    //<>
     <SafeAreaView
       style={{
         flex: 1,
       }}>
-      <View
-        style={{
-          flex: 0.1,
-          flexDirection: 'row',
-          //backgroundColor: 'red',
-          justifyContent: 'flex-start',
-        }}>
-        <TouchableOpacity
-          style={{
-            width: '10%',
-            margin: '2%',
-            marginTop: '6%',
-            height: '50%',
-            // /alignItems:'flex-start',
-            //backgroundColor: 'blue',
-          }}
-          onPress={() => navigation.openDrawer()}>
-          <Octicons name={'three-bars'} size={30} color={'black'} />
-        </TouchableOpacity>
-        <View style={styles.imageView}>
-          <Image
-            style={styles.imageStyle}
-            source={require('../assests/InWorkBLUE.png')}
-            resizeMode="contain"
-          />
-        </View>
-        <TouchableOpacity
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{
-             //backgroundColor: 'pink',
-            marginLeft: '10%',
-            justifyContent: 'center',
-          }}>
-          <MaterialIcons
-            name={'add-circle-outline'}
-            size={30}
-            color={'black'}
-          />
-        </View>
+      <KeyboardAvoidingView style={{flex: 1}} behavior="height" enabled={false}>
         <View
           style={{
-            //backgroundColor: 'yellow',
-            justifyContent: 'center',
-            marginLeft: '2%',
+            flex: 0.1,
+            flexDirection: 'row',
+            //backgroundColor: 'red',
+            justifyContent: 'flex-start',
           }}>
-          <MaterialIcons
-            name={'chat-bubble-outline'}
-            size={30}
-            color={'black'}
-          />
-        </View>
-        <View style={styles.ProPhoto}>
-          <Image
-            style={styles.CornerImage}
-            source={{
-              uri: 'https://reactnative.dev/img/tiny_logo.png',
-            }}
-          />
-        </View>
-      </View>
-      <View style={{flex: 0.9}}>
-        <View style={{flexDirection: 'row', height: '10%'}}>
-          <View
-            // eslint-disable-next-line react-native/no-inline-styles
+          <TouchableOpacity
             style={{
+              width: '10%',
+              margin: '2%',
+              marginTop: '6%',
+              height: '50%',
+              // /alignItems:'flex-start',
               //backgroundColor: 'blue',
-              width: '10%',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <Fontisto name={'search'} size={25} color={'black'} />
+            }}
+            onPress={() => navigation.openDrawer()}>
+            <Octicons name={'three-bars'} size={30} color={'black'} />
+          </TouchableOpacity>
+          <View style={styles.imageView}>
+            <Image
+              style={styles.imageStyle}
+              source={require('../assests/InWorkBLUE.png')}
+              resizeMode="contain"
+            />
           </View>
-          <View
-            style={{
-              // backgroundColor: 'yellow',
-              width: '80%',
-              alignContent: 'flex-start',
-              justifyContent: 'center',
-              height: '100%',
-            }}>
-            <TextInput style={styles.input} placeholder="Search" />
-          </View>
-          <View
+          <TouchableOpacity
             // eslint-disable-next-line react-native/no-inline-styles
+            onPress={() => navigation.navigate('PostWork')}
             style={{
-              width: '10%',
+              //backgroundColor: 'pink',
+              marginLeft: '10%',
               justifyContent: 'center',
-              alignItems: 'center',
             }}>
-            <Entypo name={'sound-mix'} size={25} color={'black'} />
+            <MaterialIcons
+              name={'add-circle-outline'}
+              size={30}
+              color={'black'}
+            />
+          </TouchableOpacity>
+          <View
+            style={{
+              //backgroundColor: 'yellow',
+              justifyContent: 'center',
+              marginLeft: '2%',
+            }}>
+            <MaterialIcons
+              name={'chat-bubble-outline'}
+              size={30}
+              color={'black'}
+            />
+          </View>
+          <View style={styles.ProPhoto}>
+            <Image
+              style={styles.CornerImage}
+              source={{
+                uri: 'https://reactnative.dev/img/tiny_logo.png',
+              }}
+            />
           </View>
         </View>
+        <View style={{flex: 0.9}}>
+          <View style={{flexDirection: 'row', height: '10%'}}>
+            <View
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{
+                //backgroundColor: 'blue',
+                width: '10%',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Fontisto name={'search'} size={25} color={'black'} />
+            </View>
+            <View
+              style={{
+                // backgroundColor: 'yellow',
+                width: '80%',
+                alignContent: 'flex-start',
+                justifyContent: 'center',
+                height: '100%',
+              }}>
+              <TextInput style={styles.input} placeholder="Search" />
+            </View>
+            <View
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{
+                width: '10%',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Entypo name={'sound-mix'} size={25} color={'black'} />
+            </View>
+          </View>
 
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-        />
-      </View>
+          <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+          />
+        </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
@@ -180,7 +186,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderColor: '#abafb3',
     borderRadius: 10,
-    backgroundColor:'white'
+    backgroundColor: 'white',
   },
   imageView: {
     width: '40%',

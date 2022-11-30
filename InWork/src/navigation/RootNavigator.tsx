@@ -40,7 +40,11 @@ const DrawerNavigation = () => {
         options={{headerShown: false}}
       />
       <Drawer.Screen name="MyApplications" component={MyApplications} />
-      <Drawer.Screen name="PostWork" component={PostWork} />
+      <Drawer.Screen
+        name="PostWork"
+        component={PostWork}
+        options={{headerShown: false}}
+      />
     </Drawer.Navigator>
   );
 };
