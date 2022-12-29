@@ -5,7 +5,46 @@ import GetStarted from '../screens/GetStarted';
 import SignUpScreen from '../screens/SignUpScreen';
 import SignInScreen from '../screens/SignInScreen';
 import Dashboard from '../screens/Dashboard';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import MyApplications from '../screens/MyApplications';
+import PostWork from '../screens/PostWork';
+import {DrawerContent} from '../components/DrawerContent';
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
+// const DrawerNavigation = () => {
+//   return (
+//     <Drawer.Navigator initialRouteName="Dashboard"
+//       screenOptions={{
+//        drawerStyle: {
+//          backgroundColor: '#ffffff',
+//          width: 240,
+//       },
+//     }}>
+//       <Drawer.Screen
+//         name="Dashboard"
+//         component={Dashboard}
+//         options={{headerShown: false}}
+//       />
+//       <Drawer.Screen name="MyApplications" component={MyApplications} />
+//       <Drawer.Screen name="PostWork" component={PostWork} />
+//     </Drawer.Navigator>
+//   );
+// };
+const DrawerNavigation = () => {
+  return (
+    <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+      <Drawer.Screen
+        name="Dashboard"
+        component={Dashboard}
+        options={{headerShown: false}}
+      />
+      <Drawer.Screen name="MyApplications" component={MyApplications} />
+      <Drawer.Screen name="PostWork" component={PostWork} />
+    </Drawer.Navigator>
+  );
+};
+
 const RootNavigator = () => {
   return (
     <Stack.Navigator>
@@ -29,9 +68,14 @@ const RootNavigator = () => {
         component={SignInScreen}
         options={{headerShown: false}}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Dashboard"
         component={Dashboard}
+        options={{headerShown: false}}
+      /> */}
+      <Stack.Screen
+        name="DrawerNavigation"
+        component={DrawerNavigation}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
