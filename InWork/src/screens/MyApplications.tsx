@@ -1,21 +1,22 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
   View,
-  Text,
+  // Text,
   StyleSheet,
   FlatList,
   SafeAreaView,
-  TextInput,
-  Image,
-  TouchableOpacity,
+  // TextInput,
+  // Image,
+  // TouchableOpacity,
 } from 'react-native';
 import Card from '../components/Card';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Ionicon from 'react-native-vector-icons/Ionicons';
-import Entypo from 'react-native-vector-icons/Entypo';
-import Fontisto from 'react-native-vector-icons/Fontisto';
-import Octicons from 'react-native-vector-icons/Octicons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+// import AntDesign from 'react-native-vector-icons/AntDesign';
+// import Ionicon from 'react-native-vector-icons/Ionicons';
+// import Entypo from 'react-native-vector-icons/Entypo';
+// import Fontisto from 'react-native-vector-icons/Fontisto';
+// import Octicons from 'react-native-vector-icons/Octicons';
+// import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const MyApplications = ({navigation}) => {
   const DATA = [
@@ -43,7 +44,7 @@ const MyApplications = ({navigation}) => {
       userName: 'Dheeraj',
       address: '104, New Tilak Nagar',
       datePosted: '24 Oct',
-      //   totalApplied: '24',
+      // totalApplied: '24',
       amount: '500',
     },
   ];

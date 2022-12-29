@@ -71,12 +71,17 @@ const styles = StyleSheet.create({
   imageStyle: {
     height: '90%',
     width: '80%',
+    borderRadius: 9,
+    marginLeft:'6%',
+    backgroundColor:'black'
   },
   imageView: {
     width: '30%',
     height: '100%',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems:'flex-start',
+    //backgroundColor:'red',
+    
   },
   middleView: {
     width: '41%',
