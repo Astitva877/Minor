@@ -9,6 +9,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import MyApplications from '../screens/MyApplications';
 import PostWork from '../screens/PostWork';
 import {DrawerContent} from '../components/DrawerContent';
+import WorkDetail from '../screens/WorkDetail';
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -80,6 +81,11 @@ const RootNavigator = () => {
       <Stack.Screen
         name="DrawerNavigation"
         component={DrawerNavigation}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="WorkDetail"
+        component={WorkDetail}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

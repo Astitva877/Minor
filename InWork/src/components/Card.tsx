@@ -9,11 +9,14 @@ interface propTypes {
   address: string;
   datePosted: string;
   totalApplied: string;
+  navigation: any;
 }
 
 const Card = (props: propTypes) => {
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => props.navigation.navigate('WorkDetail')}>
       <View style={styles.imageView}>
         <Image
           style={styles.imageStyle}
@@ -72,16 +75,15 @@ const styles = StyleSheet.create({
     height: '90%',
     width: '80%',
     borderRadius: 9,
-    marginLeft:'6%',
-    backgroundColor:'black'
+    marginLeft: '6%',
+    backgroundColor: 'black',
   },
   imageView: {
     width: '30%',
     height: '100%',
     justifyContent: 'center',
-    alignItems:'flex-start',
+    alignItems: 'flex-start',
     //backgroundColor:'red',
-    
   },
   middleView: {
     width: '41%',
