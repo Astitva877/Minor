@@ -60,6 +60,7 @@ const Dashboard = ({navigation}) => {
           amount={item.amount}
           totalApplied={item.totalApplied}
           datePosted={item.datePosted}
+          navigation={navigation}
         />
       </View>
     );
