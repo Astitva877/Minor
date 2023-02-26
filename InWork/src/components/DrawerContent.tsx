@@ -14,7 +14,8 @@ import Feather from 'react-native-vector-icons/Feather';
 //import Ionicons from 'react-native-vector-icons/Ionicons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-export function DrawerContent(props) {
+import {TouchableOpacity} from 'react-native-gesture-handler';
+export function DrawerContent({navigation}) {
   return (
     <KeyboardAvoidingView style={{flex: 1}} behavior="height" enabled={false}>
       <View style={{flex: 1, flexDirection: 'column'}}>
@@ -80,8 +81,11 @@ export function DrawerContent(props) {
             <Text style={styles.TextStyle}>Preferences</Text>
           </View>
           <View style={styles.Name}>
-            <Feather name={'briefcase'} size={28} color={'black'} />
-            <Text style={styles.TextStyle}>Work Experience</Text>
+          <Feather name={'briefcase'} size={28} color={'black'} />
+            <TouchableOpacity onPress={() => navigation.navigate('WorkEX')}>
+              
+              <Text style={styles.TextStyle}>Work Experience</Text>
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.Boxes2}>

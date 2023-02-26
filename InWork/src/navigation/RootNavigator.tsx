@@ -10,6 +10,7 @@ import MyApplications from '../screens/MyApplications';
 import PostWork from '../screens/PostWork';
 import {DrawerContent} from '../components/DrawerContent';
 import WorkDetail from '../screens/WorkDetail';
+import WorkEX from '../screens/Jobprofile';
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -86,6 +87,11 @@ const RootNavigator = () => {
       <Stack.Screen
         name="WorkDetail"
         component={WorkDetail}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="WorkEX"
+        component={WorkEX}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
