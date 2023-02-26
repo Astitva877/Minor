@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -9,6 +10,8 @@ import {
   Image,
   TouchableOpacity,
   KeyboardAvoidingView,
+  Modal,
+  Text,
 } from 'react-native';
 import Card from '../components/Card';
 //import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -17,9 +20,13 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-//import Form from '../screens/Form';
+import CustomInput from '../components/CustomInput';
+import ButtonFormat from '../components/ButtonFormat';
+import {Picker} from '@react-native-picker/picker';
 
 const Dashboard = ({navigation}) => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [pickerValue, setPickerValue] = useState('Other');
   const DATA = [
     {
       id: '1',
@@ -72,6 +79,76 @@ const Dashboard = ({navigation}) => {
         flex: 1,
       }}>
       <KeyboardAvoidingView style={{flex: 1}} behavior="height" enabled={false}>
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(!modalVisible);
+          }}>
+          <KeyboardAvoidingView
+            style={styles.centeredView}
+            behavior="height"
+            enabled={false}>
+            <View
+              style={{
+                flex: 0.5,
+                backgroundColor: 'white',
+                width: '75%',
+                borderRadius: 25,
+                elevation: 15,
+              }}>
+              <View>
+                <Text style={{fontSize: 20, fontWeight: '600', margin: 10}}>
+                  Location
+                </Text>
+                <CustomInput
+                  placeholder={'select locality'}
+                  leftIconType={
+                    <Entypo name={'location'} size={24} color={'black'} />
+                  }
+                />
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontWeight: '600',
+                    marginBottom: 10,
+                    marginStart: 10,
+                  }}>
+                  Job type
+                </Text>
+                <View style={{height: '25%'}}>
+                  <Picker
+                    style={{height: '100%', width: '95%'}}
+                    selectedValue={pickerValue}
+                    onValueChange={itemValue => setPickerValue(itemValue)}>
+                    <Picker.Item label="Carpentry" value="Carpentry" />
+                    <Picker.Item label="Plumbing" value="Plumbing" />
+                    <Picker.Item label="R.O Service" value="R.O Service" />
+                    <Picker.Item label="Electrician" value="Electrician" />
+                    <Picker.Item label="Labour" value="Labour" />
+                    <Picker.Item label="Other" value="Other" />
+                  </Picker>
+                </View>
+              </View>
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'flex-end',
+                  alignItems: 'center',
+                  marginBottom: 10,
+                }}>
+                <ButtonFormat
+                  buttonStyle={[styles.button]}
+                  onpress={() => setModalVisible(!modalVisible)}>
+                  <Text style={{color: 'white', fontWeight: '500'}}>
+                    Apply Filter
+                  </Text>
+                </ButtonFormat>
+              </View>
+            </View>
+          </KeyboardAvoidingView>
+        </Modal>
         <View
           style={{
             flex: 0.1,
@@ -98,8 +175,7 @@ const Dashboard = ({navigation}) => {
               resizeMode="contain"
             />
           </View>
-          <TouchableOpacity
-            // eslint-disable-next-line react-native/no-inline-styles
+          <TouchableOpacity 
             onPress={() => navigation.navigate('PostWork')}
             style={{
               //backgroundColor: 'pink',
@@ -136,7 +212,6 @@ const Dashboard = ({navigation}) => {
         <View style={{flex: 0.9}}>
           <View style={{flexDirection: 'row', height: '10%'}}>
             <View
-              // eslint-disable-next-line react-native/no-inline-styles
               style={{
                 //backgroundColor: 'blue',
                 width: '10%',
@@ -156,13 +231,14 @@ const Dashboard = ({navigation}) => {
               <TextInput style={styles.input} placeholder="Search" />
             </View>
             <View
-              // eslint-disable-next-line react-native/no-inline-styles
               style={{
                 width: '10%',
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <Entypo name={'sound-mix'} size={25} color={'black'} />
+              <TouchableOpacity onPress={() => setModalVisible(true)}>
+                <Entypo name={'sound-mix'} size={25} color={'black'} />
+              </TouchableOpacity>
             </View>
           </View>
 
@@ -211,5 +287,24 @@ const styles = StyleSheet.create({
     //backgroundColor:'blue',
     width: '15.5%',
     justifyContent: 'center',
+  },
+
+  button: {
+    width: '35%',
+    height: 50,
+    backgroundColor: '#063a8d',
+    elevation: 15,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#00000050',
   },
 });
