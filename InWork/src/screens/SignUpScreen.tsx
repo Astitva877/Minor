@@ -12,10 +12,62 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import CustomInput from '../components/CustomInput';
-import {Directions} from 'react-native-gesture-handler';
 
 const SignUpScreen = ({navigation}) => {
   const [visible, setVisible] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+  const [nameError, setNameError] = useState(false);
+  const [emailRrror, setEmailError] = useState(false);
+  const [passError, setPassError] = useState(false);
+  const [nameMessage, setNameMessage] = useState('');
+  const [emailMessage, setEmailMesage] = useState('');
+  const [passMessage, setPassMessage] = useState('');
+  const [message, setMessage] = useState('');
+  const handleSign = () => {
+    let res = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    if (name === '') {
+      setNameError(true);
+      setNameMessage('* please Enter Name');
+    } else if (email === '') {
+      setEmailError(true);
+      setEmailMesage('* Please Enter Email');
+      setNameError(false);
+      setNameMessage('');
+    } else if (res.test(email) === false) {
+      setEmailError(true);
+      setEmailMesage('* Please Enter Valid Email');
+      setNameError(false);
+      setNameMessage('');
+    } else if (pass === '') {
+      setPassError(true);
+      setEmailError(false);
+      setEmailMesage('');
+      setNameError(false);
+      setNameMessage('');
+      setPassMessage('* Please Set a Password');
+    } else if (pass.length < 6) {
+      setPassError(true);
+      setPassMessage('* Password should be of minimum 6 character');
+    } else {
+      setEmailError(false);
+      setPassError(false);
+      try {
+        const isUserCreated = await auth().createUserWithEmailAndPassword(
+          email,
+          pass,
+        );
+        alert('User Created');
+        navigation.navigate('Home');
+        console.log(isUserCreated);
+      } catch (err) {
+        console.log(err);
+
+        setMessage(err.message);
+      }
+    }
+  };
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -38,13 +90,17 @@ const SignUpScreen = ({navigation}) => {
         <View style={styles.middleView}>
           <View style={styles.topMiddleView}>
             <CustomInput
-              heading={'UserName'}
+              heading={'Name'}
+              value={name}
+              onChangeText={value => setName(value)}
               leftIconType={
                 <Ionicons name={'person-outline'} size={24} color={'black'} />
               }
             />
             <CustomInput
               heading={'Email'}
+              value={email}
+              onChangeText={value => setEmail(value)}
               leftIconType={
                 <MaterialIcons
                   name={'mail-outline'}
@@ -56,6 +112,8 @@ const SignUpScreen = ({navigation}) => {
             <TouchableOpacity onPress={() => setVisible(!visible)}>
               <CustomInput
                 heading={'Password'}
+                value={pass}
+                onChangeText={value => setPass(value)}
                 leftIconType={
                   <MaterialCommunityIcons
                     name={'lock-open-outline'}
@@ -72,12 +130,12 @@ const SignUpScreen = ({navigation}) => {
           </View>
         </View>
         <View style={styles.lowerView}>
-          <ButtonFormat buttonStyle={styles.signUpView} onpress={undefined}>
+          <ButtonFormat
+            buttonStyle={styles.signUpView}
+            onpress={() => handleSign()}>
             <Text style={styles.signUpText}>Sign Up</Text>
           </ButtonFormat>
-          <Text style={{color: '#DFDFDF'}}>
-            __________________________________________________
-          </Text>
+          <Text style={{color: '#DFDFDF'}}>__________________</Text>
           <ButtonFormat buttonStyle={styles.googleView} onpress={undefined}>
             <Image
               source={require('../assests/G-Icon.png')}
