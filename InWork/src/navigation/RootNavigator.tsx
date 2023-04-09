@@ -11,6 +11,8 @@ import PostWork from '../screens/PostWork';
 import {DrawerContent} from '../components/DrawerContent';
 import WorkDetail from '../screens/WorkDetail';
 import WorkEX from '../screens/Jobprofile';
+import Information from '../screens/Information';
+import SplashScreen from '../screens/SplashScreen';
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -55,6 +57,11 @@ const RootNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name="SplashScreen"
+        component={SplashScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
         name="GetStarted"
         component={GetStarted}
         options={{headerShown: false}}
@@ -67,6 +74,11 @@ const RootNavigator = () => {
       <Stack.Screen
         name="SignUpScreen"
         component={SignUpScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Information"
+        component={Information}
         options={{headerShown: false}}
       />
       <Stack.Screen

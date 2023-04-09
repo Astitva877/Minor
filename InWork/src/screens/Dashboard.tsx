@@ -33,28 +33,112 @@ const Dashboard = ({navigation}) => {
       title: 'Sofa Set Repair',
       userName: 'Kamal',
       address: '104, New Tilak Nagar Vijay Nagar Indore Madhya Pradesh',
-      datePosted: '24 Oct',
-      totalApplied: '24',
+      datePosted: '15 Oct',
+      totalApplied: '20',
       amount: '500',
+      imageUrl:
+      'https://3.imimg.com/data3/IF/MS/GLADMIN-169197/carpentry-maintenance-service-125x125.jpg',
     },
     {
       id: '2',
-      title: 'Sofa Set Repair',
+      title: 'Painting',
       userName: 'Chinmay',
       address: '104, New Tilak Nagar',
       datePosted: '24 Oct',
-      totalApplied: '24',
-      amount: '500',
+      totalApplied: '34',
+      amount: '750',
+      imageUrl:
+      'https://www.houselogic.com/wp-content/uploads/2011/03/exterior-house-painting-epspainting-standard_c231db00f6cd6e9389489e72c0f32fe0.jpg',
     },
     {
       id: '3',
-      title: 'Sofa Set Repair',
+      title: 'Plumbing',
       userName: 'Dheeraj',
-      address: '104, New Tilak Nagar',
-      datePosted: '24 Oct',
-      totalApplied: '24',
-      amount: '500',
+      address: '104, foti kotir',
+      datePosted: '17 sep',
+      totalApplied: '8',
+      amount: '600',
+      imageUrl:
+      'https://www.betterteam.com/images/plumber-job-description-3999x2999-20201118.jpeg?crop=4:3,smart&width=1200&dpr=2',
     },
+    {
+      id: '4',
+      title: 'Mechanic',
+      userName: 'Ankit',
+      address: '104, Ragwada,Indore',
+      datePosted: '5 Jan',
+      totalApplied: '12',
+      amount: '1000',
+      imageUrl:
+      'https://content.jdmagicbox.com/comp/service_catalogue/automobile-dealers-attr-car-repairs-amd7-6.jpg',
+    },
+    {
+      id: '5',
+      title: 'R.O Repair',
+      userName: 'Aditya',
+      address: '24/24 Rau ,Indore',
+      datePosted: '5 Dec',
+      totalApplied: '6',
+      amount: '550',
+      imageUrl:
+      'https://watersoftindia.com/wp-content/uploads/2021/03/Water-Purifier-Repair-Estimate-Costing.jpg',
+    },
+    {
+      id: '6',
+      title: 'Electrician ',
+      userName: 'Akhil',
+      address: '25/306, Raiti Mandi',
+      datePosted: '12 feb',
+      totalApplied: '18',
+      amount: '350',
+      imageUrl:
+      'https://www.brilltech.co.in/images/products/img-electrical-work.jpg',
+    },
+    {
+      id: '7',
+      title: 'Wood Work',
+      userName: 'Saksham',
+      address: '35/65 Near Hawa Banglow',
+      datePosted: '26 Dec',
+      totalApplied: '16',
+      amount: '800',
+      imageUrl:
+      'https://www.designingbuildings.co.uk/w/images/5/5e/Carpenter-carving-wood.jpg',
+    },
+    {
+      id: '8',
+      title: 'Sofa Set Repair',
+      userName: 'Ashutosh',
+      address: 'Fort Of IIM Indore',
+      datePosted: '9 Jan',
+      totalApplied: '16',
+      amount: '1250',
+      imageUrl:
+      'https://www.serviceonwheel.com/uploads/service/849891670587516.jpg',
+    },
+    {
+      id: '9',
+      title: 'Mechanic',
+      userName: 'Tanmay',
+      address: 'Near Vijay Nagar MR10 Indore',
+      datePosted: '16 sep',
+      totalApplied: '19',
+      amount: '600',
+      imageUrl:
+      'https://homesteading.com/wp-content/uploads/2019/09/61-Basic-Auto-Mechanic-Skills-To-Fix-Your-Car-Yourself-ss-1200x900.jpg',
+    },
+    {
+      id: '10',
+      title: 'Plumbing',
+      userName: 'Tushar',
+      address: '34/567 near Ragwada Indore',
+      datePosted: '21 dec',
+      totalApplied: '36',
+      amount: '450',
+      imageUrl:
+          'https://content.jdmagicbox.com/comp/bangalore/b8/080pxx80.xx80.180927141635.g3b8/catalogue/hari-om-plumbing-works-bangalore-0xdpluzsyh.jpg?clr=402626',
+    },
+
   ];
 
   const renderItem = ({item}) => {
@@ -68,6 +152,7 @@ const Dashboard = ({navigation}) => {
           totalApplied={item.totalApplied}
           datePosted={item.datePosted}
           navigation={navigation}
+          imageUrl={item.imageUrl}
         />
       </View>
     );
@@ -204,7 +289,7 @@ const Dashboard = ({navigation}) => {
             <Image
               style={styles.CornerImage}
               source={{
-                uri: 'https://reactnative.dev/img/tiny_logo.png',
+                uri: 'https://img.freepik.com/premium-vector/brunette-man-avatar-portrait-young-guy-vector-illustration-face_217290-1035.jpg?w=2000',
               }}
             />
           </View>
@@ -305,6 +390,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#00000050',
+    backgroundColor: '#00000060',
   },
 });

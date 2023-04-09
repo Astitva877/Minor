@@ -2,6 +2,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import ButtonFormat from '../components/ButtonFormat';
 
 const WorkDetail = ({navigation}) => {
   return (
@@ -72,32 +73,21 @@ const WorkDetail = ({navigation}) => {
           Termite. Also it old s need some repairing in its leg and some of the
           reparing hear and there.
         </Text>
+
+        <Text
+          style={{
+            color: 'black',
+            marginStart: '3%',
+            marginTop: '5%',
+            fontSize: 15,
+          }}>
+          Astitva Patle S/O Astitva Shrivastava IIST Hostel, Opp IIM,
+          Indore,485002
+        </Text>
       </View>
       <View style={styles.AddressView}>
         <View style={styles.ADDView}>
-          <Text
-            style={{
-              color: 'white',
-              fontSize: 18,
-              fontWeight: '600',
-              marginHorizontal: '4%',
-              marginTop: '2%',
-            }}>
-            Astitva Patle S/O Astitva Shrivastava IIST Hostel, Opp IIM,
-            Indore,485002
-          </Text>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <MaterialIcons name={'call'} size={30} color={'white'} />
-            <Text style={{color: 'white', fontSize: 26, fontWeight: '500'}}>
-              9876543210,895645126
-            </Text>
-          </View>
-          <Text />
+          <Text style={{color: 'white', fontSize: 20}}>Request Job</Text>
         </View>
       </View>
     </View>
@@ -162,11 +152,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   ADDView: {
-    marginTop: '5%',
+    marginTop: '10%',
     marginHorizontal: '5%',
     backgroundColor: '#063a8d',
-    height: '80%',
+    height: '40%',
     width: '90%',
     borderRadius: 20,
+    alignItems: "center",
+    justifyContent: 'center',
   },
 });

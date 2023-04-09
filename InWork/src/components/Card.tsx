@@ -10,6 +10,7 @@ interface propTypes {
   datePosted: string;
   totalApplied: string;
   navigation: any;
+  imageUrl: string;
 }
 
 const Card = (props: propTypes) => {
@@ -21,7 +22,7 @@ const Card = (props: propTypes) => {
         <Image
           style={styles.imageStyle}
           source={{
-            uri: 'https://reactnative.dev/img/tiny_logo.png',
+            uri: props.imageUrl,
           }}
           resizeMode="contain"
         />

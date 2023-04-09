@@ -15,6 +15,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import Auth from '@react-native-firebase/auth';
 export function DrawerContent({navigation}) {
   return (
     <KeyboardAvoidingView style={{flex: 1}} behavior="height" enabled={false}>
@@ -39,7 +40,7 @@ export function DrawerContent({navigation}) {
               }}>
               User Name
             </Text>
-            <Text style={{marginLeft: '2%'}}> usermail@gamil.com</Text>
+            <Text style={{marginLeft: '2%'}}> {Auth().currentUser?.email}</Text>
           </View>
           <View
             style={{
@@ -52,7 +53,7 @@ export function DrawerContent({navigation}) {
             <Image
               style={styles.CornerImage}
               source={{
-                uri: 'https://reactnative.dev/img/tiny_logo.png',
+                uri: 'https://img.freepik.com/premium-vector/brunette-man-avatar-portrait-young-guy-vector-illustration-face_217290-1035.jpg?w=2000',
               }}
             />
           </View>
@@ -65,7 +66,7 @@ export function DrawerContent({navigation}) {
             <Image
               style={styles.CornerImage2}
               source={{
-                uri: 'https://reactnative.dev/img/tiny_logo.png',
+                uri: 'https://t4.ftcdn.net/jpg/03/07/34/87/360_F_307348789_rvohtPaRfpG3pQF1Jrqmst8ORzzwp4tX.jpg',
               }}
             />
           </View>
@@ -81,9 +82,8 @@ export function DrawerContent({navigation}) {
             <Text style={styles.TextStyle}>Preferences</Text>
           </View>
           <View style={styles.Name}>
-          <Feather name={'briefcase'} size={28} color={'black'} />
+            <Feather name={'briefcase'} size={28} color={'black'} />
             <TouchableOpacity onPress={() => navigation.navigate('WorkEX')}>
-              
               <Text style={styles.TextStyle}>Work Experience</Text>
             </TouchableOpacity>
           </View>
@@ -100,7 +100,14 @@ export function DrawerContent({navigation}) {
           </View>
           <View style={styles.Name}>
             <MaterialIcons name={'logout'} size={26} color={'black'} />
-            <Text style={styles.TextStyle}>Log Out</Text>
+            <TouchableOpacity
+              onPress={async () => {
+                await Auth().signOut();
+                navigation.navigate('LoginScreen');
+                // navigation.navigate('Login');
+              }}>
+              <Text style={styles.TextStyle}>Log Out</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
