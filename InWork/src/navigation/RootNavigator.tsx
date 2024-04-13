@@ -13,6 +13,10 @@ import WorkDetail from '../screens/WorkDetail';
 import WorkEX from '../screens/Jobprofile';
 import Information from '../screens/Information';
 import SplashScreen from '../screens/SplashScreen';
+import Chat from '../screens/Chat';
+import Preferences from '../screens/Preferences';
+import HelpCenter from '../screens/HelpCenter';
+import ReportCom from '../screens/ReportCom';
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -104,6 +108,31 @@ const RootNavigator = () => {
       <Stack.Screen
         name="WorkEX"
         component={WorkEX}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={Chat}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="MyApplication"
+        component={MyApplications}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Preferences"
+        component={Preferences}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="HelpCenter"
+        component={HelpCenter}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ReportCom"
+        component={ReportCom}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

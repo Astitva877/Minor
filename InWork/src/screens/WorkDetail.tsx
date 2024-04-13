@@ -4,7 +4,12 @@ import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ButtonFormat from '../components/ButtonFormat';
 
-const WorkDetail = ({navigation}) => {
+type Props = {
+  name?: string;
+};
+
+const WorkDetail = ({route, navigation}) => {
+  const {name, title, amount, address, imageUrl} = route.params;
   return (
     <View style={styles.Over}>
       <View style={styles.overview}>
@@ -18,7 +23,7 @@ const WorkDetail = ({navigation}) => {
         </TouchableOpacity>
         <View style={styles.UserView}>
           <Text style={{color: '#666262', fontSize: 25, marginEnd: '15%'}}>
-            Astitva Patle
+            {name}
           </Text>
         </View>
       </View>
@@ -26,7 +31,7 @@ const WorkDetail = ({navigation}) => {
         <Image
           style={styles.photocan}
           source={{
-            uri: 'https://reactnative.dev/img/tiny_logo.png',
+            uri: imageUrl,
           }}
         />
       </View>
@@ -37,9 +42,9 @@ const WorkDetail = ({navigation}) => {
       </View>
       <View style={styles.title}>
         <View style={{flex: 0.6}}>
-          <Text style={{color: '#818080', fontSize: 20, marginStart: '5%'}}>
+          {/* <Text style={{color: '#818080', fontSize: 20, marginStart: '5%'}}>
             carpentry
-          </Text>
+          </Text> */}
           <Text
             style={{
               color: 'black',
@@ -47,7 +52,7 @@ const WorkDetail = ({navigation}) => {
               marginStart: '5%',
               fontWeight: '600',
             }}>
-            Sofa set Repaire
+            {title}
           </Text>
         </View>
         <View style={{flex: 0.4}}>
@@ -56,7 +61,7 @@ const WorkDetail = ({navigation}) => {
             Wage
           </Text>
           <Text style={{color: 'black', fontSize: 25, marginStart: '5%'}}>
-            ₹ 500
+            ₹ {amount}
           </Text>
         </View>
       </View>
@@ -81,14 +86,13 @@ const WorkDetail = ({navigation}) => {
             marginTop: '5%',
             fontSize: 15,
           }}>
-          Astitva Patle S/O Astitva Shrivastava IIST Hostel, Opp IIM,
-          Indore,485002
+          {address}
         </Text>
       </View>
       <View style={styles.AddressView}>
-        <View style={styles.ADDView}>
+        <TouchableOpacity style={styles.ADDView}>
           <Text style={{color: 'white', fontSize: 20}}>Request Job</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -158,7 +162,7 @@ const styles = StyleSheet.create({
     height: '40%',
     width: '90%',
     borderRadius: 20,
-    alignItems: "center",
+    alignItems: 'center',
     justifyContent: 'center',
   },
 });

@@ -88,8 +88,8 @@ const PostWork = ({navigation}) => {
             marginHorizontal: '3%',
           }}>
           <CustomInput
-            heading={'Job Title'}
-            placeholder={'Job Title'}
+            heading={'Description'}
+            placeholder={'Description'}
             leftIconType={
               <AntDesign name={'filetext1'} size={24} color={'black'} />
             }
@@ -131,7 +131,9 @@ const PostWork = ({navigation}) => {
           </View>
         </View>
         <View style={styles.lowerView}>
-          <ButtonFormat buttonStyle={styles.signUpView} onpress={undefined}>
+          <ButtonFormat
+            buttonStyle={styles.signUpView}
+            onpress={() => navigation.navigate('Dashboard')}>
             <Text style={styles.signUpText}>Submit</Text>
           </ButtonFormat>
           <Text style={{color: '#d0cfcf'}}>

@@ -1,6 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, ScrollView, Modal} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Modal,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import ButtonFormat from '../components/ButtonFormat';
 import CustomInput from '../components/CustomInput';
 import Foundation from 'react-native-vector-icons/Foundation';
@@ -72,18 +80,26 @@ export default function WorkEX({navigation}) {
           </View>
         </View>
       </Modal>
-      <ScrollView>
+      <View style={{flex: 0.1, flexDirection: 'row'}}>
+        <TouchableOpacity
+          style={styles.backButtonStyle}
+          onPress={() => navigation.goBack()}>
+          <Image
+            source={require('../assests/left-chevron.png')}
+            style={styles.logoStyle}
+          />
+        </TouchableOpacity>
         <Text
           style={{
+            fontSize: 30,
+            fontWeight: 'bold',
             color: 'black',
-            fontSize: 40,
-            fontWeight: '600',
-            margin: 20,
-            marginTop: 50,
+            marginLeft: '4%',
+            marginTop: '3.3%',
           }}>
           Work Experience
         </Text>
-      </ScrollView>
+      </View>
       <View
         style={{flex: 0.15, alignItems: 'center', justifyContent: 'center'}}>
         <ButtonFormat
@@ -116,5 +132,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  backButtonStyle: {
+    width: '16%',
+    height: '80%',
+    elevation: 15,
+    marginTop: '2%',
+  },
+  logoStyle: {
+    width: '95%',
+    height: '95%',
+    marginLeft: '8%',
+    //backgroundColor:'red'
   },
 });

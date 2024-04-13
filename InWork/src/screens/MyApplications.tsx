@@ -2,15 +2,16 @@
 import React from 'react';
 import {
   View,
-  // Text,
+  Text,
   StyleSheet,
   FlatList,
   SafeAreaView,
   // TextInput,
-  // Image,
-  // TouchableOpacity,
+  Image,
+  TouchableOpacity,
 } from 'react-native';
 import Card from '../components/Card';
+import Card2 from '../components/Card2';
 // import AntDesign from 'react-native-vector-icons/AntDesign';
 // import Ionicon from 'react-native-vector-icons/Ionicons';
 // import Entypo from 'react-native-vector-icons/Entypo';
@@ -52,7 +53,7 @@ const MyApplications = ({navigation}) => {
   const renderItem = ({item}) => {
     return (
       <View style={styles.cardView}>
-        <Card
+        <Card2
           title={item.title}
           userName={item.userName}
           address={item.address}
@@ -60,6 +61,7 @@ const MyApplications = ({navigation}) => {
           //   totalApplied={item.totalApplied}
           datePosted={item.datePosted}
           totalApplied={''}
+          navigation={undefined}
         />
       </View>
     );
@@ -69,11 +71,33 @@ const MyApplications = ({navigation}) => {
       style={{
         flex: 1,
       }}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-      />
+      <View style={{flex: 0.1, flexDirection: 'row'}}>
+        <TouchableOpacity
+          style={styles.backButtonStyle}
+          onPress={() => navigation.goBack()}>
+          <Image
+            source={require('../assests/left-chevron.png')}
+            style={styles.logoStyle}
+          />
+        </TouchableOpacity>
+        <Text
+          style={{
+            fontSize: 30,
+            fontWeight: 'bold',
+            color: 'black',
+            marginLeft: '4%',
+            marginTop: '3.3%',
+          }}>
+          My Application
+        </Text>
+      </View>
+      <View style={{flex: 0.9}}>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+        />
+      </View>
     </SafeAreaView>
   );
 };
@@ -112,5 +136,17 @@ const styles = StyleSheet.create({
     // backgroundColor:'blue',
     width: '15%',
     justifyContent: 'center',
+  },
+  logoStyle: {
+    width: '95%',
+    height: '95%',
+    marginLeft: '8%',
+    //backgroundColor:'red'
+  },
+  backButtonStyle: {
+    width: '16%',
+    height: '80%',
+    elevation: 15,
+    marginTop: '2%',
   },
 });

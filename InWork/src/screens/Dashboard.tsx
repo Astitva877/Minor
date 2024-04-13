@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -140,6 +140,19 @@ const Dashboard = ({navigation}) => {
     },
 
   ];
+  useEffect(() => {
+    const temp = {
+      id: '11',
+      title: 'Sofa Repair',
+      userName: 'Astitva',
+      address: 'Indore',
+      datePosted: '10 April',
+      totalApplied: '0',
+      amount: '1000',
+      imageUrl: 'https://3.imimg.com/data3/IF/MS/GLADMIN-169197/carpentry-maintenance-service-125x125.jpg',
+    };
+    DATA.push(temp);
+  });
 
   const renderItem = ({item}) => {
     return (
@@ -260,7 +273,7 @@ const Dashboard = ({navigation}) => {
               resizeMode="contain"
             />
           </View>
-          <TouchableOpacity 
+          <TouchableOpacity
             onPress={() => navigation.navigate('PostWork')}
             style={{
               //backgroundColor: 'pink',
@@ -273,7 +286,8 @@ const Dashboard = ({navigation}) => {
               color={'black'}
             />
           </TouchableOpacity>
-          <View
+          <TouchableOpacity
+          onPress={() => navigation.navigate('Chat')}
             style={{
               //backgroundColor: 'yellow',
               justifyContent: 'center',
@@ -284,7 +298,7 @@ const Dashboard = ({navigation}) => {
               size={30}
               color={'black'}
             />
-          </View>
+          </TouchableOpacity>
           <View style={styles.ProPhoto}>
             <Image
               style={styles.CornerImage}

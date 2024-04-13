@@ -73,14 +73,18 @@ export function DrawerContent({navigation}) {
         </View>
         <View style={styles.Boxes1}>
           <Text style={styles.TextHead}> My Profile</Text>
-          <View style={styles.Name}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('MyApplication')}
+            style={styles.Name}>
             <Feather name={'file-text'} size={28} color={'black'} />
             <Text style={styles.TextStyle}>Application</Text>
-          </View>
-          <View style={styles.Name}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Preferences')}
+            style={styles.Name}>
             <Feather name={'clipboard'} size={28} color={'black'} />
             <Text style={styles.TextStyle}>Preferences</Text>
-          </View>
+          </TouchableOpacity>
           <View style={styles.Name}>
             <Feather name={'briefcase'} size={28} color={'black'} />
             <TouchableOpacity onPress={() => navigation.navigate('WorkEX')}>
@@ -90,14 +94,18 @@ export function DrawerContent({navigation}) {
         </View>
         <View style={styles.Boxes2}>
           <Text style={styles.TextHead}> Help And Support</Text>
-          <View style={styles.Name}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('HelpCenter')}
+            style={styles.Name}>
             <Octicons name={'question'} size={26} color={'black'} />
             <Text style={styles.TextStyle}>Help Center</Text>
-          </View>
-          <View style={styles.Name}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ReportCom')}
+            style={styles.Name}>
             <Feather name={'thumbs-down'} size={26} color={'black'} />
             <Text style={styles.TextStyle}>Report a Complaint</Text>
-          </View>
+          </TouchableOpacity>
           <View style={styles.Name}>
             <MaterialIcons name={'logout'} size={26} color={'black'} />
             <TouchableOpacity
