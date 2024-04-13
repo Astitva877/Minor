@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "619147620737",
+    "project_id": "inwork-5adfd",
+    "storage_bucket": "inwork-5adfd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619147620737:android:b1b964ebc7abde8989f880",
+        "android_client_info": {
+          "package_name": "com.inwork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619147620737-acgucs8rucajcm6b1g0pa6prkp23prrp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.inwork",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "619147620737-46hrhdbfopf48ur7n2fjuj9j5nu60705.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYF7kDXAa6q-ZxSi0DaQvGHoea-5CVrFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619147620737-46hrhdbfopf48ur7n2fjuj9j5nu60705.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

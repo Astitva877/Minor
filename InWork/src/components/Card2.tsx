@@ -10,31 +10,11 @@ interface propTypes {
   datePosted: string;
   totalApplied: string;
   navigation: any;
-  imageUrl: string;
 }
 
 const Card = (props: propTypes) => {
   return (
-    <TouchableOpacity
-      style={styles.card}
-      onPress={() =>
-        props.navigation.navigate('WorkDetail', {
-          name: props.userName,
-          title: props.title,
-          amount: props.amount,
-          address: props.address,
-          imageUrl: props.imageUrl,
-        })
-      }>
-      <View style={styles.imageView}>
-        <Image
-          style={styles.imageStyle}
-          source={{
-            uri: props.imageUrl,
-          }}
-          resizeMode="contain"
-        />
-      </View>
+    <View style={styles.card}>
       <View style={styles.middleView}>
         <View style={styles.upperMiddleView}>
           <Text style={styles.titleStyle} numberOfLines={1}>
@@ -66,7 +46,7 @@ const Card = (props: propTypes) => {
           />
         </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
@@ -79,6 +59,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#ffffff',
     borderRadius: 15,
+    alignContent: 'space-between',
   },
   imageStyle: {
     height: '90%',
@@ -98,6 +79,7 @@ const styles = StyleSheet.create({
     width: '41%',
     height: '100%',
     justifyContent: 'space-evenly',
+    marginStart: '5%',
   },
   upperMiddleView: {
     width: '100%',
@@ -114,8 +96,9 @@ const styles = StyleSheet.create({
     width: '29%',
     height: '100%',
     justifyContent: 'space-between',
-    // backgroundColor: 'red',
-  },
+    marginStart:'15%'
+
+},
   upperEndView: {
     width: '100%',
     height: '50%',

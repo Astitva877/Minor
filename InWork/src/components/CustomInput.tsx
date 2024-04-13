@@ -7,6 +7,8 @@ interface Props {
   heading: string;
   leftIconType?: any;
   rightIconType?: any;
+  value: any;
+  onChangeText: any;
 }
 const CustomInput = (props: Props) => {
   return (
@@ -15,7 +17,9 @@ const CustomInput = (props: Props) => {
       placeholder={props.placeText}
       leftIcon={props.leftIconType}
       rightIcon={props.rightIconType}
-      {...props}>
+      {...props}
+      value={props.value}
+      onChangeText={props.onChangeText}>
       {props.children}
     </Input>
   );

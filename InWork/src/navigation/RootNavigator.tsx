@@ -9,6 +9,14 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import MyApplications from '../screens/MyApplications';
 import PostWork from '../screens/PostWork';
 import {DrawerContent} from '../components/DrawerContent';
+import WorkDetail from '../screens/WorkDetail';
+import WorkEX from '../screens/Jobprofile';
+import Information from '../screens/Information';
+import SplashScreen from '../screens/SplashScreen';
+import Chat from '../screens/Chat';
+import Preferences from '../screens/Preferences';
+import HelpCenter from '../screens/HelpCenter';
+import ReportCom from '../screens/ReportCom';
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -40,7 +48,11 @@ const DrawerNavigation = () => {
         options={{headerShown: false}}
       />
       <Drawer.Screen name="MyApplications" component={MyApplications} />
-      <Drawer.Screen name="PostWork" component={PostWork} />
+      <Drawer.Screen
+        name="PostWork"
+        component={PostWork}
+        options={{headerShown: false}}
+      />
     </Drawer.Navigator>
   );
 };
@@ -48,6 +60,11 @@ const DrawerNavigation = () => {
 const RootNavigator = () => {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="SplashScreen"
+        component={SplashScreen}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="GetStarted"
         component={GetStarted}
@@ -64,6 +81,11 @@ const RootNavigator = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
+        name="Information"
+        component={Information}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
         name="SignInScreen"
         component={SignInScreen}
         options={{headerShown: false}}
@@ -76,6 +98,41 @@ const RootNavigator = () => {
       <Stack.Screen
         name="DrawerNavigation"
         component={DrawerNavigation}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="WorkDetail"
+        component={WorkDetail}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="WorkEX"
+        component={WorkEX}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={Chat}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="MyApplication"
+        component={MyApplications}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Preferences"
+        component={Preferences}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="HelpCenter"
+        component={HelpCenter}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ReportCom"
+        component={ReportCom}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
