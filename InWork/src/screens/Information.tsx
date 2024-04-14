@@ -1,14 +1,44 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-undef */
 /* eslint-disable react/jsx-no-undef */
-import React from 'react';
-import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, TouchableOpacity, Image, StyleSheet, ToastAndroid} from 'react-native';
 import ButtonFormat from '../components/ButtonFormat';
 import CustomInput from '../components/CustomInput';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import firestore from '@react-native-firebase/firestore';
 const Information = ({navigation}) => {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const [address, setAddress] = useState('');
+  const [email, setEmail] = useState('');
+  const [city, setCity] = useState('');
+  const [icaiNumber, setIcaiNumber] = useState('');
+  const submitData = () => {
+    console.log('inside');
+    try {
+      firestore()
+        .collection('ca')
+        .add({
+          name: name,
+          number: number,
+          address: address,
+          email: email,
+          city: city,
+          icaiNumber: icaiNumber,
+        })
+        .then(() => {
+          console.log('User added!');
+          ToastAndroid.show('Info Added', ToastAndroid.SHORT);
+          navigation.navigate('DrawerNavigation', {screen: 'Dashboard'});
+        });
+    } catch (error) {
+      console.log('error', error);
+      ToastAndroid.show('Something Went Wrong!', ToastAndroid.SHORT);
+    }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.upperView}>
@@ -20,39 +50,58 @@ const Information = ({navigation}) => {
               <Image
                 source={require('../assests/left-chevron.png')}
                 style={styles.logoStyle}
+                resizeMode="contain"
               />
             </View>
           </TouchableOpacity>
           <Text style={styles.signTextStyle}> User Information</Text>
         </View>
       </View>
-      <View style={{flex: 0.6, marginHorizontal: 20}}>
+      <View style={{flex: 0.7, marginHorizontal: 20}}>
         <CustomInput
-          placeholder={' First Name'}
+          placeText={'Name'}
+          value={name}
+          onChangeText={setName}
           leftIconType={<Feather name={'user'} size={24} color={'black'} />}
         />
         <CustomInput
-          placeholder={'Last Name'}
+          placeText={'Email'}
+          value={email}
+          onChangeText={setEmail}
           leftIconType={<Feather name={'user'} size={24} color={'black'} />}
         />
         <CustomInput
-          placeholder={'Age'}
+          placeholder={'Number'}
+          value={number}
+          onChangeText={setNumber}
           leftIconType={<Feather name={'calendar'} size={24} color={'black'} />}
         />
         <CustomInput
-          placeholder={'Work Preferance'}
+          placeholder={'Address'}
+          value={address}
+          onChangeText={setAddress}
           leftIconType={
             <MaterialIcons name={'carpenter'} size={24} color={'black'} />
           }
         />
         <CustomInput
-          placeholder={'Enter Your Gender'}
+          placeholder={'City'}
+          value={city}
+          onChangeText={setCity}
           leftIconType={
             <MaterialCommunityIcons
               name={'human-male-female'}
               size={24}
               color={'black'}
             />
+          }
+        />
+        <CustomInput
+          placeholder={'ICAI Membership Number'}
+          value={icaiNumber}
+          onChangeText={setIcaiNumber}
+          leftIconType={
+            <MaterialIcons name={'carpenter'} size={24} color={'black'} />
           }
         />
       </View>
@@ -65,7 +114,8 @@ const Information = ({navigation}) => {
         <ButtonFormat
           buttonStyle={styles.forwardButton}
           onpress={() =>
-            navigation.navigate('DrawerNavigation', {screen: 'Dashboard'})
+            // navigation.navigate('DrawerNavigation', {screen: 'Dashboard'})
+            submitData()
           }>
           <Text style={styles.startedText}>Submit</Text>
         </ButtonFormat>
@@ -76,7 +126,7 @@ const Information = ({navigation}) => {
 
 export default Information;
 const styles = StyleSheet.create({
-  upperView: {flex: 0.3, alignItems: 'center'},
+  upperView: {flex: 0.2, alignItems: 'center'},
   topUpperView: {
     width: '90%',
     justifyContent: 'space-evenly',
