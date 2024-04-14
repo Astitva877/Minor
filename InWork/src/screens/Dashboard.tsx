@@ -23,10 +23,27 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import CustomInput from '../components/CustomInput';
 import ButtonFormat from '../components/ButtonFormat';
 import {Picker} from '@react-native-picker/picker';
+import firestore from '@react-native-firebase/firestore';
 
 const Dashboard = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [pickerValue, setPickerValue] = useState('Other');
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => { 
+    try {
+      firestore().collection('ca').get()
+      .then((data) =>{
+        console.log('data', data.docs);
+        setUsers(data.docs);
+      })
+      .catch((error) => {
+        console.log('error', error);
+      });
+    } catch (error) {
+      console.log('error in cacth', error);
+    }
+  }, []);
   const DATA = [
     {
       id: '1',
@@ -158,14 +175,14 @@ const Dashboard = ({navigation}) => {
     return (
       <View style={styles.cardView}>
         <Card
-          title={item.title}
-          userName={item.userName}
-          address={item.address}
-          amount={item.amount}
-          totalApplied={item.totalApplied}
-          datePosted={item.datePosted}
+          title={item._data.city}
+          userName={item._data.name}
+          address={item._data.address}
+          amount={item._data.email}
+          totalApplied={item._data.icaiNumber}
+          datePosted={item._data.number}
           navigation={navigation}
-          imageUrl={item.imageUrl}
+          // imageUrl={item.imageUrl}
         />
       </View>
     );
@@ -342,7 +359,7 @@ const Dashboard = ({navigation}) => {
           </View>
 
           <FlatList
-            data={DATA}
+            data={users}
             renderItem={renderItem}
             keyExtractor={item => item.id}
           />
