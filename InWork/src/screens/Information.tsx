@@ -2,7 +2,15 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/jsx-no-undef */
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, Image, StyleSheet, ToastAndroid} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  ToastAndroid,
+  KeyboardAvoidingView,
+} from 'react-native';
 import ButtonFormat from '../components/ButtonFormat';
 import CustomInput from '../components/CustomInput';
 import Feather from 'react-native-vector-icons/Feather';
@@ -16,31 +24,75 @@ const Information = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [city, setCity] = useState('');
   const [icaiNumber, setIcaiNumber] = useState('');
+  const [nameError, setNameError] = useState(false);
+  const [emailRrror, setEmailError] = useState(false);
+  const [nameMessage, setNameMessage] = useState('');
+  const [emailMessage, setEmailMesage] = useState('');
+  const [numberError, setNumberError] = useState(false);
+  const [addressRrror, setAddressError] = useState(false);
+  const [numberMessage, setNumberMessage] = useState('');
+  const [addressMessage, setAddressMessage] = useState('');
+  const [cityError, setCityError] = useState(false);
+  const [icaiError, setIcaiError] = useState(false);
+  const [cityMessage, setCityMessage] = useState('');
+  const [icaiMessage, setIcaiMessage] = useState('');
+  const [discription,setDiscription]=useState('');
   const submitData = () => {
     console.log('inside');
-    try {
-      firestore()
-        .collection('ca')
-        .add({
-          name: name,
-          number: number,
-          address: address,
-          email: email,
-          city: city,
-          icaiNumber: icaiNumber,
-        })
-        .then(() => {
-          console.log('User added!');
-          ToastAndroid.show('Info Added', ToastAndroid.SHORT);
-          navigation.navigate('DrawerNavigation', {screen: 'Dashboard'});
-        });
-    } catch (error) {
-      console.log('error', error);
-      ToastAndroid.show('Something Went Wrong!', ToastAndroid.SHORT);
+    let res = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    if (name === '') {
+      setNameError(true);
+      setNameMessage('* please Enter Name');
+    } else if (email === '') {
+      setEmailError(true);
+      setEmailMesage('* Please Enter Email');
+      setNameError(false);
+      setNameMessage('');
+    } else if (res.test(email) === false) {
+      setEmailError(true);
+      setEmailMesage('* Please Enter Valid Email');
+      setNameError(false);
+      setNameMessage('');
+    } else if (number.length < 10) {
+      setNumberError(true);
+      setNumberMessage('Enter Valid Number');
+    } else if (address.length == 0) {
+      setAddressError(true);
+      setAddressMessage('Enter a valid Adress');
+    } else if (city.length == 0) {
+      setCityError(true);
+      setCityMessage('Enter a valid Adress');
+    } else if (icaiNumber.length < 15) {
+      setIcaiError(true);
+      setIcaiMessage('Enter a valid Adress');
+    } else {
+      setEmailError(false);
+
+      try {
+        firestore()
+          .collection('ca')
+          .add({
+            name: name,
+            number: number,
+            address: address,
+            email: email,
+            city: city,
+            icaiNumber: icaiNumber,
+            discription: discription,
+          })
+          .then(() => {
+            console.log('User added!');
+            ToastAndroid.show('Info Added', ToastAndroid.SHORT);
+            navigation.navigate('DrawerNavigation', {screen: 'Dashboard'});
+          });
+      } catch (error) {
+        console.log('error', error);
+        ToastAndroid.show('Something Went Wrong!', ToastAndroid.SHORT);
+      }
     }
   };
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView enabled={false} style={styles.container}>
       <View style={styles.upperView}>
         <View style={styles.topUpperView}>
           <TouchableOpacity
@@ -57,25 +109,41 @@ const Information = ({navigation}) => {
           <Text style={styles.signTextStyle}> User Information</Text>
         </View>
       </View>
-      <View style={{flex: 0.7, marginHorizontal: 20}}>
+      <KeyboardAvoidingView enabled={false}
+        style={{flex: 0.7, marginHorizontal: 20}}>
         <CustomInput
           placeText={'Name'}
           value={name}
           onChangeText={setName}
           leftIconType={<Feather name={'user'} size={24} color={'black'} />}
         />
+        {nameError ? (
+          <Text style={{color: 'red', marginLeft: 15, marginBottom: 5}}>
+            {nameMessage}
+          </Text>
+        ) : null}
         <CustomInput
           placeText={'Email'}
           value={email}
           onChangeText={setEmail}
           leftIconType={<Feather name={'user'} size={24} color={'black'} />}
         />
+        {emailRrror ? (
+          <Text style={{color: 'red', marginLeft: 15, marginBottom: 5}}>
+            {emailMessage}
+          </Text>
+        ) : null}
         <CustomInput
           placeholder={'Number'}
           value={number}
           onChangeText={setNumber}
           leftIconType={<Feather name={'calendar'} size={24} color={'black'} />}
         />
+        {numberError ? (
+          <Text style={{color: 'red', marginLeft: 15, marginBottom: 5}}>
+            {numberMessage}
+          </Text>
+        ) : null}
         <CustomInput
           placeholder={'Address'}
           value={address}
@@ -84,6 +152,11 @@ const Information = ({navigation}) => {
             <MaterialIcons name={'carpenter'} size={24} color={'black'} />
           }
         />
+        {addressRrror ? (
+          <Text style={{color: 'red', marginLeft: 15, marginBottom: 5}}>
+            {addressMessage}
+          </Text>
+        ) : null}
         <CustomInput
           placeholder={'City'}
           value={city}
@@ -96,6 +169,11 @@ const Information = ({navigation}) => {
             />
           }
         />
+        {cityError ? (
+          <Text style={{color: 'red', marginLeft: 15, marginBottom: 5}}>
+            {cityMessage}
+          </Text>
+        ) : null}
         <CustomInput
           placeholder={'ICAI Membership Number'}
           value={icaiNumber}
@@ -104,7 +182,20 @@ const Information = ({navigation}) => {
             <MaterialIcons name={'carpenter'} size={24} color={'black'} />
           }
         />
-      </View>
+        {icaiError ? (
+          <Text style={{color: 'red', marginLeft: 15, marginBottom: 5}}>
+            {cityMessage}
+          </Text>
+        ) : null}
+        <CustomInput
+          placeholder={'Discription of your Exprerince'}
+          value={discription}
+          onChangeText={setDiscription}
+          leftIconType={
+            <MaterialIcons name={'carpenter'} size={24} color={'black'} />
+          }
+        />
+      </KeyboardAvoidingView>
       <View
         style={{
           flex: 0.1,
@@ -120,7 +211,7 @@ const Information = ({navigation}) => {
           <Text style={styles.startedText}>Submit</Text>
         </ButtonFormat>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

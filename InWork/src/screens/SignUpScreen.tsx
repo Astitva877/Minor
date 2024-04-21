@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Alert,
+  Switch,
 } from 'react-native';
 import ButtonFormat from '../components/ButtonFormat';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -28,6 +29,8 @@ const SignUpScreen = ({navigation}) => {
   const [emailMessage, setEmailMesage] = useState('');
   const [passMessage, setPassMessage] = useState('');
   const [message, setMessage] = useState('');
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   const handleSign = async () => {
     let res = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
     if (name === '') {
@@ -61,8 +64,9 @@ const SignUpScreen = ({navigation}) => {
           email,
           pass,
         );
-
-        navigation.navigate('Information');
+        isEnabled
+          ? navigation.replace('Information')
+          : navigation.replace('Dashboard');
         console.log(isUserCreated);
         console.log('User Created');
       } catch (err) {
@@ -148,6 +152,28 @@ const SignUpScreen = ({navigation}) => {
             ) : null}
           </View>
         </View>
+        <View style={{flex: 0.08, flexDirection: 'column'}}>
+          <Text
+            style={{
+              fontWeight: '500',
+              color: 'gray',
+              fontSize: 15,
+              marginStart: '6%',
+              //backgroundColor: 'red',
+            }}>
+            Register as a Chartered Accountant
+          </Text>
+          <View
+            style={{width: '25%', alignItems: 'flex-start', marginStart: '7%'}}>
+            <Switch
+              trackColor={{false: '#767577', true: '#52FF33'}}
+              thumbColor={isEnabled ? '#f4f3f4' : '#f4f3f4'}
+              ios_backgroundColor="#3e3e3e"
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+            />
+          </View>
+        </View>
         <View style={styles.lowerView}>
           <ButtonFormat
             buttonStyle={styles.signUpView}
@@ -205,11 +231,12 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   upperView: {flex: 0.3, alignItems: 'center'},
-  middleView: {flex: 0.4, alignItems: 'center'},
+  middleView: {flex: 0.37, alignItems: 'center'},
   lowerView: {
-    flex: 0.3,
+    flex: 0.25,
     alignItems: 'center',
     justifyContent: 'flex-end',
+    //  backgroundColor: 'green',
   },
   topUpperView: {
     width: '90%',

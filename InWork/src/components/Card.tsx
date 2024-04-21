@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {StyleSheet, View, Text, TouchableOpacity, Image} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -11,6 +12,7 @@ interface propTypes {
   totalApplied: string;
   navigation: any;
   imageUrl: string;
+  discription: string;
 }
 
 const Card = (props: propTypes) => {
@@ -23,47 +25,39 @@ const Card = (props: propTypes) => {
           title: props.title,
           amount: props.amount,
           address: props.address,
-          imageUrl: props.imageUrl,
+          icai: props.totalApplied,
+          discription: props.discription,
+          number: props.datePosted,
         })
       }>
       <View style={styles.imageView}>
         <Image
           style={styles.imageStyle}
-          source={{
-            uri: props.imageUrl,
-          }}
+          source={require('../assests/CA.jpg')}
           resizeMode="contain"
         />
       </View>
       <View style={styles.middleView}>
         <View style={styles.upperMiddleView}>
           <Text style={styles.titleStyle} numberOfLines={1}>
-            {props.title}
+            {props.userName}
           </Text>
           <Text style={styles.nameStyle} numberOfLines={1}>
-            {props.userName}
+            {props.title}
           </Text>
           <Text style={styles.nameStyle} numberOfLines={1}>
             {props.address}
           </Text>
         </View>
         <View style={styles.lowerMiddleView}>
-          <Text style={styles.amountStyle}>₹{props.amount}</Text>
+          <Text style={{fontSize: 10}}>Icai no: </Text>
+          <Text style={styles.amountStyle}>{props.totalApplied}</Text>
         </View>
       </View>
       <View style={styles.endView}>
         <View style={styles.upperEndView}>
-          <Text style={styles.textStyle}>Posted on {props.datePosted}</Text>
-          <Text style={styles.textStyle}>
-            {props.totalApplied} People Applied
-          </Text>
-        </View>
-        <View style={styles.lowerEndView}>
-          <MaterialCommunityIcons
-            name={'arrow-right'}
-            size={24}
-            color={'#063a8d'}
-          />
+          <Text style={styles.textStyle}>{props.amount}</Text>
+          <Text style={styles.textStyle}>{props.datePosted}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -95,26 +89,30 @@ const styles = StyleSheet.create({
     //backgroundColor:'red',
   },
   middleView: {
-    width: '41%',
+    width: '46%',
     height: '100%',
     justifyContent: 'space-evenly',
   },
   upperMiddleView: {
     width: '100%',
     height: '68%',
+    //backgroundColor: 'yellow',
   },
   titleStyle: {fontSize: 18, color: '#000000'},
   nameStyle: {fontSize: 12, color: '#7b7d80'},
   lowerMiddleView: {
     width: '100%',
     height: '22%',
+    //backgroundColor: 'blue',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   amountStyle: {fontSize: 15, color: '#1C1C1C'},
   endView: {
-    width: '29%',
+    width: '25%',
     height: '100%',
     justifyContent: 'space-between',
-    // backgroundColor: 'red',
+    //backgroundColor: 'red',
   },
   upperEndView: {
     width: '100%',
