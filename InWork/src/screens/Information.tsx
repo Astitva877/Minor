@@ -10,6 +10,7 @@ import {
   StyleSheet,
   ToastAndroid,
   KeyboardAvoidingView,
+  ActivityIndicator,
 } from 'react-native';
 import ButtonFormat from '../components/ButtonFormat';
 import CustomInput from '../components/CustomInput';
@@ -36,7 +37,8 @@ const Information = ({navigation}) => {
   const [icaiError, setIcaiError] = useState(false);
   const [cityMessage, setCityMessage] = useState('');
   const [icaiMessage, setIcaiMessage] = useState('');
-  const [discription,setDiscription]=useState('');
+  const [discription, setDiscription] = useState('');
+  const [loader, setLoader] = useState(false);
   const submitData = () => {
     console.log('inside');
     let res = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -67,7 +69,7 @@ const Information = ({navigation}) => {
       setIcaiMessage('Enter a valid Adress');
     } else {
       setEmailError(false);
-
+      setLoader(true);
       try {
         firestore()
           .collection('ca')
@@ -83,10 +85,12 @@ const Information = ({navigation}) => {
           .then(() => {
             console.log('User added!');
             ToastAndroid.show('Info Added', ToastAndroid.SHORT);
+            setLoader(false);
             navigation.navigate('DrawerNavigation', {screen: 'Dashboard'});
           });
       } catch (error) {
         console.log('error', error);
+        setLoader(false);
         ToastAndroid.show('Something Went Wrong!', ToastAndroid.SHORT);
       }
     }
@@ -109,7 +113,8 @@ const Information = ({navigation}) => {
           <Text style={styles.signTextStyle}> User Information</Text>
         </View>
       </View>
-      <KeyboardAvoidingView enabled={false}
+      <KeyboardAvoidingView
+        enabled={false}
         style={{flex: 0.7, marginHorizontal: 20}}>
         <CustomInput
           placeText={'Name'}
@@ -208,6 +213,7 @@ const Information = ({navigation}) => {
             // navigation.navigate('DrawerNavigation', {screen: 'Dashboard'})
             submitData()
           }>
+          <ActivityIndicator size="small" animating={loader} />
           <Text style={styles.startedText}>Submit</Text>
         </ButtonFormat>
       </View>

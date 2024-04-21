@@ -9,14 +9,15 @@ import {
   Modal,
   Pressable,
   KeyboardAvoidingView,
-  Linking
+  Linking,
+  Platform,
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ButtonFormat from '../components/ButtonFormat';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Picker} from '@react-native-picker/picker';
 import Entypo from 'react-native-vector-icons/Entypo';
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import CustomInput from '../components/CustomInput';
 //import {Modal} from 'react-native-paper';
 
@@ -28,6 +29,18 @@ const WorkDetail = ({route, navigation}) => {
   const {name, title, amount, address, imageUrl, icai, discription, number} =
     route.params;
   const [modalVisible, setModalVisible] = useState(false);
+
+  const makeCall = () => {
+    let phoneNumber = '';
+
+    if (Platform.OS === 'android') {
+      phoneNumber = `tel:${number}`;
+    } else {
+      phoneNumber = `telprompt:${8291775591}`;
+    }
+
+    Linking.openURL(phoneNumber);
+  };
 
   return (
     <View style={styles.Over}>
@@ -54,7 +67,9 @@ const WorkDetail = ({route, navigation}) => {
               <Text style={{fontSize: 20, fontWeight: '600', margin: 10}}>
                 Contact Number
               </Text>
-              <View style={{flexDirection: 'row', marginStart: '5%'}}>
+              <TouchableOpacity
+                style={{flexDirection: 'row', marginStart: '5%'}}
+                onPress={() => makeCall()}>
                 <FontAwesome name={'phone'} size={24} color={'black'} />
                 <Text
                   style={{
@@ -65,7 +80,7 @@ const WorkDetail = ({route, navigation}) => {
                   }}>
                   {number}
                 </Text>
-              </View>
+              </TouchableOpacity>
               <Text
                 style={{
                   fontSize: 20,
@@ -98,9 +113,7 @@ const WorkDetail = ({route, navigation}) => {
               <ButtonFormat
                 buttonStyle={[styles.button]}
                 onpress={() => setModalVisible(!modalVisible)}>
-                <Text style={{color: 'white', fontWeight: '500'}}>
-                  Done
-                </Text>
+                <Text style={{color: 'white', fontWeight: '500'}}>Done</Text>
               </ButtonFormat>
             </View>
           </View>
