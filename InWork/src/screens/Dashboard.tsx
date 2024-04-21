@@ -29,13 +29,16 @@ const Dashboard = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [pickerValue, setPickerValue] = useState('Other');
   const [users, setUsers] = useState([]);
+  const [search, setSearch] = useState('');
+  const [updatedUser, setUpdatedUser] = useState([]);
 
-  useEffect(() => { 
+  useEffect(() => {
     try {
       firestore().collection('ca').get()
       .then((data) =>{
         console.log('data', data.docs);
         setUsers(data.docs);
+        setUpdatedUser(data.docs);
       })
       .catch((error) => {
         console.log('error', error);
@@ -44,6 +47,12 @@ const Dashboard = ({navigation}) => {
       console.log('error in cacth', error);
     }
   }, []);
+
+  useEffect(() => {
+    const filteredUsers = users.filter(item => item._data.city.toLowerCase().includes(search.toLowerCase()));
+    setUpdatedUser(filteredUsers);
+  }, [search]);
+
   const renderItem = ({item}) => {
     return (
       <View style={styles.cardView}>
@@ -138,12 +147,12 @@ const Dashboard = ({navigation}) => {
                 justifyContent: 'center',
                 height: '100%',
               }}>
-              <TextInput style={styles.input} placeholder="Search" />
+              <TextInput style={styles.input} placeholder="Search by city..." value={search} onChangeText={setSearch} />
             </View>
           </View>
 
           <FlatList
-            data={users}
+            data={updatedUser}
             renderItem={renderItem}
             keyExtractor={item => item.id}
           />
