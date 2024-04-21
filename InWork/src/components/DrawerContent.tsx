@@ -65,31 +65,8 @@ export function DrawerContent({navigation}) {
           <View style={styles.ImageCon}>
             <Image
               style={styles.CornerImage2}
-              source={{
-                uri: 'https://t4.ftcdn.net/jpg/03/07/34/87/360_F_307348789_rvohtPaRfpG3pQF1Jrqmst8ORzzwp4tX.jpg',
-              }}
+              source={require('../assests/Ca2.png')}
             />
-          </View>
-        </View>
-        <View style={styles.Boxes1}>
-          <Text style={styles.TextHead}> My Profile</Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('MyApplication')}
-            style={styles.Name}>
-            <Feather name={'file-text'} size={28} color={'black'} />
-            <Text style={styles.TextStyle}>Application</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Preferences')}
-            style={styles.Name}>
-            <Feather name={'clipboard'} size={28} color={'black'} />
-            <Text style={styles.TextStyle}>Preferences</Text>
-          </TouchableOpacity>
-          <View style={styles.Name}>
-            <Feather name={'briefcase'} size={28} color={'black'} />
-            <TouchableOpacity onPress={() => navigation.navigate('WorkEX')}>
-              <Text style={styles.TextStyle}>Work Experience</Text>
-            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.Boxes2}>
@@ -185,7 +162,7 @@ const styles = StyleSheet.create({
     marginVertical: '2%',
     marginLeft: '4.5%',
     borderRadius: 25,
-    backgroundColor: 'red',
+    backgroundColor: 'white',
     elevation: 20,
   },
 });

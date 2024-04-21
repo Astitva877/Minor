@@ -22,7 +22,7 @@ export default function SplashScreen({navigation}) {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Image
-        source={require('../assests/InWorkBLUE.png')}
+        source={require('../assests/upstart-high-resolution-logo-transparent.png')}
         style={{height: '10%', width: '70%'}}
         resizeMode="contain"
       />

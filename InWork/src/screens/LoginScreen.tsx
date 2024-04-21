@@ -12,8 +12,9 @@ const GetStarted = ({navigation}) => {
         <View style={styles.upperInsideView}>
           <Text style={styles.welcomeText}>Welcome to</Text>
           <Image
-            source={require('../assests/InWorkLogoWhite.png')}
+            source={require('../assests/upstart-high-resolution-logo-white-transparent.png')}
             style={styles.logoStyle}
+            resizeMode='contain'
           />
           <Image
             source={require('../assests/rafiki.png')}

@@ -26,7 +26,7 @@ const Chat = ({navigation}) => {
         </Text>
       </View>
       <View style={{flex: 0.9, justifyContent: 'center', alignItems: 'center'}}>
-        <Text>No Conversation...</Text>
+        <Text>Comming soon....</Text>
       </View>
     </View>
   );
